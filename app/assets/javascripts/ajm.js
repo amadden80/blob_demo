@@ -17,10 +17,11 @@ var ajm = ajm || {}
     var aToB = ajm.range(0, numSamples);
     var dif = highNum - lowNum;
     for (var i = 0; i < numSamples; i++) {
-        aToB[i] = ((aToB[i]/numSamples) * dif) + lowNum;
+        aToB[i] = ((aToB[i]/(numSamples-1)) * dif) + lowNum;
     }
     return aToB;
   }
+
 
   ajm.cumsum = function(vect){
     var cumSum = 0;
@@ -68,7 +69,7 @@ var ajm = ajm || {}
   }
 
   ajm.time_gen = function(seconds, fs){
-    return ajm.linspace(0, seconds, seconds*fs);
+    return ajm.linspace(0, seconds, seconds*fs-1);
   }
 
   ajm.make_tone = function(freq, seconds, fs, amplitude){
