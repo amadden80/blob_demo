@@ -69,7 +69,7 @@ var ajm = ajm || {}
   }
 
   ajm.time_gen = function(seconds, fs){
-    return ajm.linspace(0, seconds, seconds*fs-1);
+    return ajm.linspace(0, seconds-(1/fs), seconds*fs);
   }
 
   ajm.make_tone = function(freq, seconds, fs, amplitude){
